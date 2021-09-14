@@ -1,91 +1,16 @@
 // Assignment Code
 
 //Create variables for character options
-var uppercaseCharacters = [
-  'A',
-  'B',
-  'C',
-  'D',
-  'E',
-  'F',
-  'G',
-  'H',
-  'I',
-  'J',
-  'K',
-  'L',
-  'M',
-  'N',
-  'O',
-  'P',
-  'Q',
-  'R',
-  'S',
-  'T',
-  'U',
-  'V',
-  'W',
-  'X',
-  'Y',
-  'Z'
-];
-
-var lowercaseCharacters = [
-  'a',
-  'b',
-  'c',
-  'd',
-  'e',
-  'f',
-  'g',
-  'h',
-  'i',
-  'j',
-  'k',
-  'l',
-  'm',
-  'n',
-  'o',
-  'p',
-  'q',
-  'r',
-  's',
-  't',
-  'u',
-  'v',
-  'w',
-  'x',
-  'y',
-  'z'
-];
-
-var numericCharacters = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
-
-var specialCharacters = [
-  '@',
-  '%',
-  '+',
-  '\\',
-  '/',
-  "'",
-  '!',
-  '#',
-  '$',
-  '^',
-  '?',
-  ':',
-  ',',
-  ')',
-  '(',
-  '}',
-  '{',
-  ']',
-  '[',
-  '~',
-  '-',
-  '_',
-  '.'
-];
+const uppercaseCharacters = arrayFromLowToHigh(65, 90)
+const lowercaseCharacters = arrayFromLowToHigh(97, 122)
+const numericCharacters = arrayFromLowToHigh(48, 57)
+const specialCharacters = arrayFromLowToHigh(33, 47).concat(
+  arrayFromLowToHigh(58, 64)
+).concat(
+  arrayFromLowToHigh(91, 96)
+).concat(
+  arrayFromLowToHigh(123, 126)
+)
 
 
 
@@ -165,13 +90,13 @@ function generatePassword() {
 // }  
 
 // generates a password that matches selected criteria
-// function arrayFromLowtoHigh (low, high) {
-//   const array = []
-//   for(let i = low; i <= high; i++) {
-//     array.push(i)
-//   }
-//   return array
-// }
+function arrayFromLowToHigh (low, high) {
+  const array = []
+  for(let i = low; i <= high; i++) {
+    array.push(i)
+  }
+  return array
+}
 
 
 // Create generate password function
