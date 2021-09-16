@@ -46,48 +46,36 @@ function generatePassword() {
 
   var characters = [];
 
-  if (characters) {
+  if (hasUppercaseCharacters) {
     characters = characters.concat(hasUppercaseCharacters)
   }
 
-  if (characters) {
+  if (hasLowercaseCharacters) {
     characters = characters.concat(hasLowercaseCharacters)
   }
 
-  if (characters) {
+  if (hasNumericCharacters) {
     characters = characters.concat(hasNumericCharacters)
   }
 
-  if (characters) {
+  if (hasSpecialCharacters) {
     characters = characters.concat(hasSpecialCharacters)
   }
 
+  if (characters.length == 0) {
+    alert('please select at least one of the character options by pressing ok');
+    return;
+  }
+
   var i;
-
   var password = "";
-
   for(var i = 0; i < length; i++) {
     var randomize = characters[Math.floor(Math.random * characters.length)];
     password = password.concat(randomize);
   }
   return password;
 
-  // var selections = {
-  //   length: length,
-  //   hasUppercaseCharacters: hasUppercaseCharacters,
-  //   hasLowercaseCharacters: hasLowercaseCharacters,
-  //   hasNumericCharacters: hasNumericCharacters,
-  //   hasSpecialCharacters: hasSpecialCharacters,
-  // }
-  // return selections;
 }
-
-// function randomize(arr){
-//   var randIndex = Math.floor(Math.random() * arr.length);
-//   var randElement = arr[randIndex];
-  
-//   return randElement;
-// }  
 
 // generates a password that matches selected criteria
 function arrayFromLowToHigh (low, high) {
@@ -99,49 +87,6 @@ function arrayFromLowToHigh (low, high) {
 }
 
 
-// Create generate password function
-// function generatePassword() {
-//   var options = passwordOptions();
-  
-//   var output = [];
-  
-//   var characters = [];
-  
-//   var generatedCharacters = [];
-  
-//   if (options.hasLowercaseCharacters){
-//     characters = characters.concat(lowercaseCharacters);
-//     generatedCharacters.push(randomize(lowercaseCharacters));
-//   }
-  
-//   if (options.hasUppercaseCharacters){
-//     characters = characters.concat(uppercaseCharacters);
-//     generatedCharacters.push(randomize(uppercaseCharacters));
-//   }
-  
-//   if (options.hasNumericCharacters){
-//     characters = characters.concat(numericCharacters);
-//     generatedCharacters.push(randomize(numericCharacters));
-//   }
-  
-//   if (options.hasSpecialCharacters) {
-//     characters = characters.concat(specialCharacters);
-//     generatedCharacters.push(randomize(specialCharacters));
-//   }
-  
-//   for (var i = 0; i < options.length; i++) {
-//     var characters = randomize(characters);
-    
-//     output.push(characters);
-//   }
-  
-//   for(var i = 0; i < generatedCharacters.length; i++){
-//     output[i] = generatedCharacters[i];
-//   }
-  
-//   return output.join('')
-  
-// }
 
 // password is generated in either an alter or displayed on the page
 var generateBtn = document.querySelector('#generate')
